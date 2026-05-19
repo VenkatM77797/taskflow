@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #fafafa;
+  color: #171717;
+}
+
+button, input, textarea, select {
+  font: inherit;
+}
+
+.priority-1 {
+  border-color: #dc2626;
+  color: #dc2626;
+}
+
+.priority-2 {
+  border-color: #f97316;
+  color: #f97316;
+}
+
+.priority-3 {
+  border-color: #2563eb;
+  color: #2563eb;
+}
+
+.priority-4 {
+  border-color: #a3a3a3;
+  color: #737373;
+}
