@@ -36,7 +36,7 @@ export function NavigationSidebar({
 
   function logout() {
     clearToken();
-    router.push('/login');
+    router.replace('/login');
   }
 
   async function createProject(event: FormEvent) {
