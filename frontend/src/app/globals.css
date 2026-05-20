@@ -6,6 +6,10 @@
   color-scheme: light;
 }
 
+.dark {
+  color-scheme: dark;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -16,7 +20,15 @@ body {
   color: #171717;
 }
 
-button, input, textarea, select {
+.dark body {
+  background: #0a0a0a;
+  color: #f5f5f5;
+}
+
+button,
+input,
+textarea,
+select {
   font: inherit;
 }
 
