@@ -94,7 +94,7 @@ export function TaskCard({
   }
 
   return (
-    <div className="group rounded-3xl border border-neutral-200 bg-white p-5 shadow-sm transition hover:shadow-md dark:border-neutral-800 dark:bg-neutral-900">
+    <div className="glass-card group rounded-3xl p-5 transition hover:-translate-y-0.5 hover:shadow-xl">
       <div className="flex items-start gap-3">
         <button
           onClick={() => toggleComplete()}
