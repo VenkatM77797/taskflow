@@ -3,11 +3,12 @@
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { AlertTriangle, CalendarDays, CheckCircle2, Folder, Home, Inbox, LogOut, Plus, Tag } from 'lucide-react';
-import { useState } from 'react';
+import { useState, type FormEvent, type ReactNode } from 'react';
 import clsx from 'clsx';
 import { clearToken } from '@/lib/auth';
 import { api } from '@/lib/api';
 import type { Label, Project } from '@/types';
+import { ThemeToggle } from './ThemeToggle';
 
 export function NavigationSidebar({ projects, labels, onCreated }: { projects: Project[]; labels: Label[]; onCreated: () => void }) {
   const pathname = usePathname();
@@ -21,7 +22,50 @@ export function NavigationSidebar({ projects, labels, onCreated }: { projects: P
     router.push('/login');
   }
 
-  async function createProject(event: React.FormEvent) {
+  function NavItem({
+  href,
+  icon,
+  active,
+  label,
+  color,
+  count,
+}: {
+  href: string;
+  icon?: ReactNode;
+  active: boolean;
+  label: string;
+  color?: string;
+  count?: number;
+}) {
+  return (
+    <Link
+      href={href}
+      className={clsx(
+        'flex items-center gap-3 rounded-2xl px-3 py-2 text-sm font-medium transition',
+        active
+          ? 'bg-rose-50 text-brand-700 dark:bg-brand-600/20 dark:text-rose-300'
+          : 'text-neutral-700 hover:bg-neutral-50 dark:text-neutral-300 dark:hover:bg-neutral-900'
+      )}
+    >
+      {icon || (
+        <span
+          className="h-2.5 w-2.5 rounded-full"
+          style={{ backgroundColor: color }}
+        />
+      )}
+
+      <span className="min-w-0 flex-1 truncate">{label}</span>
+
+      {typeof count === 'number' && (
+        <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-500 dark:bg-neutral-800 dark:text-neutral-400">
+          {count}
+        </span>
+      )}
+    </Link>
+  );
+}
+
+  async function createProject(event: FormEvent) {
     event.preventDefault();
     if (!projectName.trim()) return;
     setBusy(true);
@@ -34,7 +78,7 @@ export function NavigationSidebar({ projects, labels, onCreated }: { projects: P
     }
   }
 
-  async function createLabel(event: React.FormEvent) {
+  async function createLabel(event: FormEvent) {
     event.preventDefault();
     if (!labelName.trim()) return;
     setBusy(true);
@@ -48,13 +92,23 @@ export function NavigationSidebar({ projects, labels, onCreated }: { projects: P
   }
 
   return (
-    <aside className="flex h-screen w-72 flex-col border-r border-neutral-200 bg-white p-4">
+    <aside className="flex h-screen w-72 flex-col border-r border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-950">
       <div className="mb-6 flex items-center justify-between">
-        <Link href="/dashboard" className="text-2xl font-black text-brand-600">TaskFlow</Link>
-        <button onClick={logout} className="rounded-xl p-2 text-neutral-500 hover:bg-neutral-100" title="Logout">
+      <Link href="/dashboard" className="text-2xl font-black text-brand-600">
+        TaskFlow
+      </Link>
+
+      <div className="flex items-center gap-2">
+        <ThemeToggle />
+        <button
+          onClick={logout}
+          className="rounded-xl p-2 text-neutral-500 hover:bg-neutral-100 dark:text-neutral-400 dark:hover:bg-neutral-800"
+          title="Logout"
+        >
           <LogOut size={18} />
         </button>
       </div>
+    </div>
 
       <nav className="space-y-1">
         <NavItem href="/dashboard" icon={<Home size={18} />} active={pathname === '/dashboard'} label="Dashboard" />
@@ -111,15 +165,5 @@ export function NavigationSidebar({ projects, labels, onCreated }: { projects: P
         </form>
       </div>
     </aside>
-  );
-}
-
-function NavItem({ href, icon, active, label, color, count }: { href: string; icon?: React.ReactNode; active: boolean; label: string; color?: string; count?: number }) {
-  return (
-    <Link href={href} className={clsx('flex items-center gap-3 rounded-2xl px-3 py-2 text-sm font-medium transition', active ? 'bg-rose-50 text-brand-700' : 'text-neutral-700 hover:bg-neutral-50')}>
-      {icon || <span className="h-2.5 w-2.5 rounded-full" style={{ backgroundColor: color }} />}
-      <span className="min-w-0 flex-1 truncate">{label}</span>
-      {typeof count === 'number' && <span className="rounded-full bg-neutral-100 px-2 py-0.5 text-xs text-neutral-500">{count}</span>}
-    </Link>
   );
 }

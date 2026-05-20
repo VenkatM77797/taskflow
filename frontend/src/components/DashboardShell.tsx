@@ -25,9 +25,9 @@ export function DashboardShell({ children }: { children: React.ReactNode }) {
 
   return (
     <RequireAuth>
-      <div className="flex min-h-screen bg-neutral-50">
+      <div className="flex min-h-screen bg-neutral-50 dark:bg-neutral-950">
         <NavigationSidebar projects={projects} labels={labels} onCreated={loadNavigationSidebarData} />
-        <main className="h-screen flex-1 overflow-y-auto p-8">
+        <main className="h-screen flex-1 overflow-y-auto p-8 text-neutral-900 dark:text-neutral-100">
           <div className="mx-auto max-w-5xl">{children}</div>
         </main>
       </div>
