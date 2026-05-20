@@ -33,7 +33,7 @@ export function AuthForm({ mode }: { mode: 'login' | 'register' }) {
         auth: false
       });
       setToken(data.token);
-      router.push('/dashboard/inbox');
+      router.replace('/dashboard/inbox');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Something went wrong');
     } finally {
