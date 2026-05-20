@@ -78,7 +78,7 @@ export function NavigationSidebar({
   }
 
   return (
-    <aside className="flex h-screen w-72 flex-col border-r border-neutral-200 bg-white p-4 dark:border-neutral-800 dark:bg-neutral-950">
+    <aside className="glass-panel relative z-20 flex h-screen w-72 flex-col border-r p-4">
       <div className="mb-6 flex items-center justify-between">
         <Link href="/dashboard" className="text-2xl font-black text-brand-600">
           TaskFlow
@@ -230,8 +230,8 @@ function NavItem({
       className={clsx(
         'flex items-center gap-3 rounded-2xl px-3 py-2 text-sm font-medium transition',
         active
-          ? 'bg-red-50 text-brand-700 dark:bg-red-950/50 dark:text-red-300'
-          : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900'
+  ? 'bg-brand-50 text-brand-700 dark:bg-brand-900/40 dark:text-brand-300'
+  : 'text-neutral-700 hover:bg-neutral-100 dark:text-neutral-300 dark:hover:bg-neutral-900'
       )}
     >
       {icon || (
