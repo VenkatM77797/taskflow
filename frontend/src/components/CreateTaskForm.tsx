@@ -15,7 +15,7 @@ type Props = {
 };
 
 const fieldClass =
-  'rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-sm text-neutral-900 outline-none transition placeholder:text-neutral-400 focus:border-brand-500 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500';
+  'glass-input rounded-2xl px-3 py-2 text-sm text-neutral-900 outline-none transition placeholder:text-neutral-400 focus:border-brand-500 dark:text-neutral-100 dark:placeholder:text-neutral-500';
 
 const softButtonClass =
   'rounded-2xl border border-neutral-200 bg-white px-3 py-2 text-xs font-semibold text-neutral-700 transition hover:bg-neutral-50 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700';
@@ -126,7 +126,7 @@ export function CreateTaskForm({
   return (
     <form
       onSubmit={submit}
-      className="rounded-3xl border border-neutral-200 bg-white p-5 shadow-sm dark:border-neutral-800 dark:bg-neutral-900"
+      className="glass-card rounded-3xl p-5"
     >
       <div className="flex items-center gap-3">
         <Plus className="text-brand-600" size={20} />
