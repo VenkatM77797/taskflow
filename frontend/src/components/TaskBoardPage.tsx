@@ -84,7 +84,7 @@ export function TaskBoardPage({
         </div>
 
         <div className="flex flex-col gap-2 md:flex-row md:items-center">
-          <div className="flex items-center gap-2 rounded-2xl border border-neutral-200 bg-white px-3 py-2 shadow-sm dark:border-neutral-700 dark:bg-neutral-900">
+          <div className="glass-input flex items-center gap-2 rounded-2xl px-3 py-2 shadow-sm">
             <Search size={16} className="text-neutral-400 dark:text-neutral-500" />
 
             <input
@@ -95,7 +95,7 @@ export function TaskBoardPage({
             />
           </div>
 
-          <div className="flex items-center gap-2 rounded-2xl border border-neutral-200 bg-white px-3 py-2 shadow-sm dark:border-neutral-700 dark:bg-neutral-900">
+          <div className="glass-input flex items-center gap-2 rounded-2xl px-3 py-2 shadow-sm">
             <Filter size={16} className="text-neutral-400 dark:text-neutral-500" />
 
             <select
