@@ -61,7 +61,10 @@ export function DashboardShell({ children }: { children: ReactNode }) {
   }
 
   return (
-    <div className="flex min-h-screen bg-neutral-50 text-neutral-900 dark:bg-neutral-950 dark:text-neutral-100">
+    <div className="relative flex min-h-screen overflow-hidden bg-[#f8faf7] text-neutral-900 dark:bg-[#08111f] dark:text-neutral-100">
+  <div className="pointer-events-none absolute left-[-120px] top-[-120px] h-80 w-80 rounded-full bg-brand-300/30 blur-3xl dark:bg-brand-500/20" />
+  <div className="pointer-events-none absolute right-[-160px] top-32 h-96 w-96 rounded-full bg-accent-500/20 blur-3xl dark:bg-accent-500/10" />
+  <div className="pointer-events-none absolute bottom-[-180px] left-1/3 h-96 w-96 rounded-full bg-sky-400/20 blur-3xl dark:bg-sky-500/10" />
       <NavigationSidebar
         projects={projects}
         labels={labels}
