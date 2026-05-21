@@ -1,7 +1,7 @@
 # TaskFlow Productivity App
 
 TaskFlow is a Todoist-inspired full-stack task manager. This version is reorganized for easier future improvements and now includes a clearer `/dashboard` app structure, task details, subtasks and weekly views, dashboard statistics, search, and priority filtering.
-fdmngkmdmckenfeifsnisnifnkds
+fdmngkmdmckenfeifsn
 ## Tech stack
 
 - **Frontend:** Next.js, React, TypeScript, Tailwind CSS
